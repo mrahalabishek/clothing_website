@@ -10,8 +10,8 @@
             $cat_rs=mysqli_fetch_assoc($cat_query);
         ?>
 		<p><?php
-        do {
-            echo $cat_rs['name']; ?>
+        do {    ?>
+            <a href="category.php?categoryID=<?php echo $cat_rs['categoryID']; ?>"><?php echo $cat_rs['name']; ?></a>
 
             <?php
         }while($cat_rs=mysqli_fetch_assoc($cat_query));
