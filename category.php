@@ -13,4 +13,21 @@
         //if the query is successful, create a variable to store the results
         $stock_rs=mysqli_fetch_assoc($stock_query);
     }
+
+    if(mysqli_num_rows($stock_query)==0) {
+        echo"Out of stock";
+    }else{
+        ?>
+        <h1><?php echo $stock_rs['catname']?></h1>
+        <?php do {
+            ?>
+            <div class="item">
+            <p><?php echo $stock_rs['name']; ?></p>
+            <p>$<?php echo $stock_rs['price']; ?></p>
+            </div>
+        <?php
+        }while($stock_rs=mysqli_fetch_assoc($stock_query));
+        ?>
+    <?php
+    }
 ?>
